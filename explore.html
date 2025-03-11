@@ -19,51 +19,46 @@
 
     <main>
         <h2>Available Coupons</h2>
-        <div id="couponList"></div>
+        <div id="couponList">Loading coupons...</div>
     </main>
 
-    <script>
-        function loadCoupons() {
-            const couponList = document.getElementById("couponList");
-            couponList.innerHTML = "";
+<script>
+    function loadCoupons() {
+        const couponList = document.getElementById("couponList");
 
-            let coupons = JSON.parse(localStorage.getItem("coupons")) || [];
+        fetch("http://localhost/fetch_coupons.php")
+            .then(response => response.json())
+            .then(data => {
+                couponList.innerHTML = ""; // Clear previous content
 
-            if (coupons.length === 0) {
-                couponList.innerHTML = "<p>No coupons available.</p>";
-                return;
-            }
-
-            coupons.forEach((coupon, index) => {
-                const couponDiv = document.createElement("div");
-                couponDiv.classList.add("coupon-card");
-                couponDiv.innerHTML = `
-                    <h3>${coupon.name}</h3>
-                    <p><strong>Category:</strong> ${coupon.category}</p>
-                    <p><strong>Description:</strong> ${coupon.description}</p>
-                    <p><strong>Expiry:</strong> ${coupon.expiry}</p>
-                    <p><strong>Code:</strong> <span id="code-${index}" style="display:none;">${coupon.code}</span></p>
-                    <button class="btn" onclick="openPayment(${index})">Show Code</button>
-                `;
-                couponList.appendChild(couponDiv);
-            });
-        }
-
-        function openPayment(index) {
-            // Open Razorpay payment link
-            const razorpayLink = "https://razorpay.me/@pratikshawagh632";  // Your Razorpay payment link
-            window.open(razorpayLink, "_blank");  // Opens in new tab
-
-            // Simulating successful payment with a delay
-            setTimeout(() => {
-                let userConfirmed = confirm("Payment Successful? Click OK to reveal the coupon code.");
-                if (userConfirmed) {
-                    document.getElementById(`code-${index}`).style.display = "inline";
+                if (data.status !== "success" || !data.data.length) {
+                    couponList.innerHTML = "<p>No coupons available.</p>";
+                    return;
                 }
-            }, 5000);  // Adjust timing as needed
-        }
 
-        window.onload = loadCoupons;
-    </script>
+                data.data.forEach((coupon, index) => {
+                    const couponDiv = document.createElement("div");
+                    couponDiv.classList.add("coupon-card");
+                    couponDiv.innerHTML = `
+                        <h3>${coupon.coupon_name}</h3>
+                        <p><strong>Category:</strong> ${coupon.coupon_category}</p>
+                        <p><strong>Description:</strong> ${coupon.coupon_description}</p>
+                        <p><strong>Expiry:</strong> ${coupon.expiration_date}</p>
+                        <p><strong>Code:</strong> <span id="code-${index}" style="display:none;">${coupon.coupon_code}</span></p>
+                        <button class="btn" onclick="openPayment(${index})">Show Code</button>
+                    `;
+                    couponList.appendChild(couponDiv);
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching coupons:", error);
+                couponList.innerHTML = "<p>Error loading coupons. Please try again later.</p>";
+            });
+    }
+
+    window.onload = loadCoupons;
+</script>
+
+
 </body>
 </html>
