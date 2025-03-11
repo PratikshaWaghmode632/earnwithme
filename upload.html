@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <header>
         <h1>Upload a Coupon</h1>
         <nav>
@@ -20,15 +19,14 @@
         <div class="upload-frame">
             <form class="upload-form" id="couponForm">
                 <h2>Share Your Coupon</h2>
+                <label for="coupon_name">Coupon Name</label>
+                <input type="text" id="coupon_name" name="coupon_name" required>
 
-                <label for="couponName">Coupon Name</label>
-                <input type="text" id="couponName" name="couponName" placeholder="Enter coupon name" required>
+                <label for="coupon_code">Coupon Code</label>
+                <input type="text" id="coupon_code" name="coupon_code" required>
 
-                <label for="couponCode">Coupon Code</label>
-                <input type="text" id="couponCode" name="couponCode" placeholder="Enter coupon code" required>
-
-                <label for="couponCategory">Coupon Category</label>
-                <select id="couponCategory" name="couponCategory">
+                <label for="coupon_category">Coupon Category</label>
+                <select id="coupon_category" name="coupon_category">
                     <option value="shopping">Shopping</option>
                     <option value="food">Food & Beverages</option>
                     <option value="electronics">Electronics</option>
@@ -36,8 +34,8 @@
                     <option value="other">Other</option>
                 </select>
 
-                <label for="couponDescription">Coupon Description</label>
-                <textarea id="couponDescription" name="couponDescription" rows="3" placeholder="Enter a brief description"></textarea>
+                <label for="coupon_description">Coupon Description</label>
+                <textarea id="coupon_description" name="coupon_description" rows="3"></textarea>
 
                 <label for="expiryDate">Expiration Date</label>
                 <input type="date" id="expiryDate" name="expiryDate" required>
@@ -47,28 +45,43 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById("couponForm").addEventListener("submit", function (event) {
-            event.preventDefault();
+<script>
+    document.getElementById("couponForm").addEventListener("submit", function (event) {
+        event.preventDefault();
 
-            // Get form data
-            const coupon = {
-                name: document.getElementById("couponName").value,
-                code: document.getElementById("couponCode").value,
-                category: document.getElementById("couponCategory").value,
-                description: document.getElementById("couponDescription").value,
-                expiry: document.getElementById("expiryDate").value
-            };
+        const coupon = {
+            coupon_name: document.getElementById("coupon_name").value.trim(),
+            coupon_code: document.getElementById("coupon_code").value.trim(),
+            coupon_category: document.getElementById("coupon_category").value,
+            coupon_description: document.getElementById("coupon_description").value.trim(),
+            expiration_date: document.getElementById("expiryDate").value
+        };
 
-            // Save to localStorage
-            let coupons = JSON.parse(localStorage.getItem("coupons")) || [];
-            coupons.push(coupon);
-            localStorage.setItem("coupons", JSON.stringify(coupons));
+        if (!coupon.coupon_name || !coupon.coupon_code || !coupon.expiration_date) {
+            alert("Please fill all required fields.");
+            return;
+        }
 
-            // Redirect to Explore Page
-            window.location.href = "explore.html";
+        fetch("http://pratikshawaghmode.free.nf/store_coupon.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(coupon)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert("Coupon uploaded successfully!");
+                window.location.href = "explore.html";
+            } else {
+                alert("Error uploading coupon: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred. Please check your connection and ensure the server is running.");
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
