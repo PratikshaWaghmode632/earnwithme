@@ -1,26 +1,20 @@
-/* Light & Colorful Theme */
+/* General Styles */
 body {
-    background-color: #f8f9fa;
-    color: #333;
-    font-family: "Poppins", Arial, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: #f4f4f4;
 }
 
-/* Header */
 header {
-    background: #ffffff;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #ff6b6b;
+    background: #333;
+    color: white;
+    padding: 15px 0;
 }
 
 header h1 {
     margin: 0;
-    font-size: 28px;
-    color: #ff6b6b;
 }
 
 nav {
@@ -28,92 +22,67 @@ nav {
 }
 
 nav a {
-    color: #ff6b6b;
+    color: white;
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
-nav a:hover {
-    color: #1e90ff;
+.intro {
+    padding: 20px;
+    background: #eee;
 }
 
-/* Home Page Layout */
 .home-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-    gap: 20px;
+    height: 30vh; /* Ensures it's centered in the viewport */
 }
 
-/* Sections */
+.middle-sections {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
 .section {
-    width: 30%;
-    background: #ffffff;
+    background: white;
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 }
 
 .section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 15px rgba(255, 102, 102, 0.4);
+    transform: scale(1.05);
 }
 
-/* Images */
 .section img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-    filter: drop-shadow(2px 2px 5px rgba(255, 102, 102, 0.3));
+    width: 100%;
+    border-radius: 70px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.section {
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* ------------------------- */
-/* Styling for Headings, Titles & Footer */
-/* ------------------------- */
-
-/* Heading (Share & Earn) */
-.intro h2 {
-    font-size: 32px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #ff6b6b, #ffa502, #1e90ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-top: 20px;
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Description */
-.intro p {
-    font-size: 18px;
-    color: #555;
-    margin-top: 10px;
-}
-
-/* Footer Text */
 .footer {
-    margin-top: 40px;
+    background: #333;
+    color: white;
     padding: 20px;
-    background: #ffffff;
-    font-size: 16px;
-    color: #333;
-    text-shadow: none;
-    border-top: 3px solid #ff6b6b;
+    margin-top: 20px;
+}
+* ------------------------- */
+/* Responsive Design */
+/* ------------------------- */
+
+@media (max-width: 768px) {
+    .top-sections {
+        width: 80%; /* Larger width on smaller screens */
+    }
+
+    .section {
+        width: 200px; /* Slightly smaller blocks on mobile */
+    }
 }
 
 /* ------------------------- */
