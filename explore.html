@@ -26,7 +26,7 @@
     function loadCoupons() {
         const couponList = document.getElementById("couponList");
 
-        fetch("http://localhost/fetch_coupons.php")
+        fetch("http://pratikshawaghmode.free.nf/fetch_coupons")
             .then(response => response.json())
             .then(data => {
                 couponList.innerHTML = ""; // Clear previous content
