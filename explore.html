@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Coupons</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Explore Coupons</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Coupons</a>
+            <a href="upload.html">Upload Coupons</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Available Coupons</h2>
+        <div id="couponList"></div>
+    </main>
+
+    <script>
+        function loadCoupons() {
+            const couponList = document.getElementById("couponList");
+            couponList.innerHTML = "";
+
+            let coupons = JSON.parse(localStorage.getItem("coupons")) || [];
+
+            if (coupons.length === 0) {
+                couponList.innerHTML = "<p>No coupons available.</p>";
+                return;
+            }
+
+            coupons.forEach((coupon, index) => {
+                const couponDiv = document.createElement("div");
+                couponDiv.classList.add("coupon-card");
+                couponDiv.innerHTML = `
+                    <h3>${coupon.name}</h3>
+                    <p><strong>Category:</strong> ${coupon.category}</p>
+                    <p><strong>Description:</strong> ${coupon.description}</p>
+                    <p><strong>Expiry:</strong> ${coupon.expiry}</p>
+                    <p><strong>Code:</strong> <span id="code-${index}" style="display:none;">${coupon.code}</span></p>
+                    <button class="btn" onclick="openPayment(${index})">Show Code</button>
+                `;
+                couponList.appendChild(couponDiv);
+            });
+        }
+
+        function openPayment(index) {
+            // Open Razorpay payment link
+            const razorpayLink = "https://razorpay.me/@pratikshawagh632";  // Your Razorpay payment link
+            window.open(razorpayLink, "_blank");  // Opens in new tab
+
+            // Simulating successful payment with a delay
+            setTimeout(() => {
+                let userConfirmed = confirm("Payment Successful? Click OK to reveal the coupon code.");
+                if (userConfirmed) {
+                    document.getElementById(`code-${index}`).style.display = "inline";
+                }
+            }, 5000);  // Adjust timing as needed
+        }
+
+        window.onload = loadCoupons;
+    </script>
+</body>
+</html>

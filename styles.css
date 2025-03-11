@@ -1,0 +1,476 @@
+/* Light & Colorful Theme */
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: "Poppins", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #ff6b6b;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #ff6b6b;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #ff6b6b;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1e90ff;
+}
+
+/* Home Page Layout */
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    gap: 20px;
+}
+
+/* Sections */
+.section {
+    width: 30%;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(255, 102, 102, 0.4);
+}
+
+/* Images */
+.section img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    filter: drop-shadow(2px 2px 5px rgba(255, 102, 102, 0.3));
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ------------------------- */
+/* Styling for Headings, Titles & Footer */
+/* ------------------------- */
+
+/* Heading (Share & Earn) */
+.intro h2 {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff6b6b, #ffa502, #1e90ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Description */
+.intro p {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Footer Text */
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: #ffffff;
+    font-size: 16px;
+    color: #333;
+    text-shadow: none;
+    border-top: 3px solid #ff6b6b;
+}
+
+/* ------------------------- */
+/* Styling for Explore Page */
+/* ------------------------- */
+
+/* Explore Coupons Grid */
+#couponList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;
+    margin: auto;
+}
+
+/* Coupon Cards */
+.coupon-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coupon-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 102, 102, 0.3);
+}
+
+/* Coupon Details */
+.coupon-card h3 {
+    font-size: 22px;
+    color: #ff6b6b;
+}
+
+.coupon-card p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Show Code Button */
+.btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e63946;
+}
+
+/* ------------------------- */
+/* Styling for Upload Page */
+/* ------------------------- */
+
+/* Light & Colorful Theme */
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: "Poppins", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #ff6b6b;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #ff6b6b;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #ff6b6b;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1e90ff;
+}
+
+/* Home Page Layout */
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    gap: 20px;
+}
+
+/* Sections */
+.section {
+    width: 30%;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(255, 102, 102, 0.4);
+}
+
+/* Images */
+.section img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    filter: drop-shadow(2px 2px 5px rgba(255, 102, 102, 0.3));
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ------------------------- */
+/* Styling for Headings, Titles & Footer */
+/* ------------------------- */
+
+/* Heading (Share & Earn) */
+.intro h2 {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff6b6b, #ffa502, #1e90ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Description */
+.intro p {
+    font-size: 18px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Footer Text */
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: #ffffff;
+    font-size: 16px;
+    color: #333;
+    text-shadow: none;
+    border-top: 3px solid #ff6b6b;
+}
+
+/* ------------------------- */
+/* Styling for Explore Page */
+/* ------------------------- */
+
+/* Explore Coupons Grid */
+#couponList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;
+    margin: auto;
+}
+
+/* Coupon Cards */
+.coupon-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coupon-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 102, 102, 0.3);
+}
+
+/* Coupon Details */
+.coupon-card h3 {
+    font-size: 22px;
+    color: #ff6b6b;
+}
+
+.coupon-card p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Show Code Button */
+.btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e63946;
+}
+
+/* ------------------------- */
+/* Styling for Upload Page */
+/* ------------------------- */
+
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+}
+
+/* Upload Form Frame */
+.upload-frame {
+    background: linear-gradient(135deg, #ff6b6b, #ffa502);
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 102, 102, 0.3);
+    width: 450px; /* Fixed width */
+    height: 500px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Content Inside Frame */
+.upload-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Form Title */
+.upload-form h2 {
+    font-size: 24px;
+    color: #ff6b6b;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Form Inputs */
+.upload-form label {
+    font-size: 16px;
+    color: #555;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.upload-form input, .upload-form select, .upload-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff6b6b;
+    border-radius: 8px;
+    background: #f8f9fa;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.upload-form input:focus, .upload-form select:focus, .upload-form textarea:focus {
+    outline: none;
+    border-color: #ffa502;
+    box-shadow: 0px 0px 8px rgba(255, 165, 2, 0.5);
+}
+
+/* Submit Button */
+.upload-form button {
+    width: 100%;
+    padding: 12px;
+    background: #ff6b6b;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.upload-form button:hover {
+    background: #e63946;
+}
+
+/* Submission Confirmation */
+.submission-message {
+    display: none;
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 4px 15px rgba(255, 102, 102, 0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.submission-message h2 {
+    font-size: 24px;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+
+.submission-message button {
+    width: 80%;
+    padding: 12px;
+    background: #ffa502;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s ease;
+}
+
+.submission-message button:hover {
+    background: #e63946;
+}

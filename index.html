@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Coupon Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- jQuery for animation -->
+</head>
+<body>
+    <header>
+        <h1>Coupon Hub</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Coupons</a>
+            <a href="upload.html">Upload Coupons</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- New Heading & Description -->
+    <section class="intro">
+        <h2>Share & Earn with Extra Coupons!</h2>
+        <p>Turn your unused coupon codes into cash and grab amazing deals shared by others.</p>
+    </section>
+
+    <main class="home-container">
+        <div class="section explore" onclick="window.location.href='explore.html'">
+            <img src="explore.webp" alt="Explore Coupons">
+            <h2>Explore Coupons</h2>
+            <p>Find the best deals and save money on your favorite brands!</p>
+        </div>
+
+        <div class="section money">
+            <img src="money.webp" alt="Save Money">
+            <h2>Save & Earn</h2>
+            <p>Use coupons and maximize your savings with exclusive offers.</p>
+        </div>
+
+        <div class="section upload" onclick="window.location.href='upload.html'">
+            <img src="upload.jpg" alt="Upload Coupons">
+            <h2>Upload Coupons</h2>
+            <p>Share your coupon codes and help others save too!</p>
+        </div>
+    </main>
+
+    <!-- New Content at the End -->
+    <footer class="footer">
+        <p>Discover the easiest way to share and earn from your unused coupon codes or find exclusive deals from others. Start saving and earning today with <strong>CouponXchange</strong>!</p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $(".section").hide().fadeIn(1000); // Smooth fade-in effect
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Coupon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Upload a Coupon</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Coupons</a>
+        </nav>
+    </header>
+
+    <div class="upload-container">
+        <div class="upload-frame">
+            <form class="upload-form" id="couponForm">
+                <h2>Share Your Coupon</h2>
+
+                <label for="couponName">Coupon Name</label>
+                <input type="text" id="couponName" name="couponName" placeholder="Enter coupon name" required>
+
+                <label for="couponCode">Coupon Code</label>
+                <input type="text" id="couponCode" name="couponCode" placeholder="Enter coupon code" required>
+
+                <label for="couponCategory">Coupon Category</label>
+                <select id="couponCategory" name="couponCategory">
+                    <option value="shopping">Shopping</option>
+                    <option value="food">Food & Beverages</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="travel">Travel</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="couponDescription">Coupon Description</label>
+                <textarea id="couponDescription" name="couponDescription" rows="3" placeholder="Enter a brief description"></textarea>
+
+                <label for="expiryDate">Expiration Date</label>
+                <input type="date" id="expiryDate" name="expiryDate" required>
+
+                <button type="submit">Upload Coupon</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("couponForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get form data
+            const coupon = {
+                name: document.getElementById("couponName").value,
+                code: document.getElementById("couponCode").value,
+                category: document.getElementById("couponCategory").value,
+                description: document.getElementById("couponDescription").value,
+                expiry: document.getElementById("expiryDate").value
+            };
+
+            // Save to localStorage
+            let coupons = JSON.parse(localStorage.getItem("coupons")) || [];
+            coupons.push(coupon);
+            localStorage.setItem("coupons", JSON.stringify(coupons));
+
+            // Redirect to Explore Page
+            window.location.href = "explore.html";
+        });
+    </script>
+
+</body>
+</html>
